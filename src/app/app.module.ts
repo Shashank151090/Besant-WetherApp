@@ -14,6 +14,7 @@ import {AddComponent} from './pages/add/add.component';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {UiService} from './services/ui/ui.service';
+import { GooglePlacesDirective } from './google-places.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {UiService} from './services/ui/ui.service';
     AddComponent,
     LoginComponent,
     SignupComponent,
-    AddCardComponent
+    AddCardComponent,
+    GooglePlacesDirective
   ],
   imports: [
     BrowserModule,
