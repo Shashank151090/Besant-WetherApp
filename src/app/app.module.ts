@@ -13,6 +13,7 @@ import {AddCardComponent} from './ui/add-card/add-card.component';
 import {AddComponent} from './pages/add/add.component';
 import {LoginComponent} from './pages/login/login.component';
 import {SignupComponent} from './pages/signup/signup.component';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import {UiService} from './services/ui/ui.service';
 import { GooglePlacesDirective } from './google-places.directive';
 
@@ -31,6 +32,7 @@ import { GooglePlacesDirective } from './google-places.directive';
   ],
   imports: [
     BrowserModule,
+    GooglePlaceModule,
     AppRoutingModule,
     HttpClientModule,
   ],

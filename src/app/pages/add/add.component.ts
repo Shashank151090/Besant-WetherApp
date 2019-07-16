@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import { GetCityNameService } from 'src/app/get-city-name.service';
+import { WeatherService } from 'src/app/services/weather/weather.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add',
@@ -7,10 +10,23 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
-  constructor() {
+  constructor(private cityNameService: GetCityNameService, private weatherService: WeatherService) {
   }
 
+  cities: {};
+  showCity: boolean = false;
   ngOnInit() {
-  }
+ this.weatherService.getCityList()
+.subscribe(data => {
+ this.cities = data;
+});
+    }
+
+    citySelected(filterVal: any){
+       console.log(filterVal);
+      this.showCity = true;
+      this.cityNameService.putCityName(filterVal);
+
+    }
 
 }

@@ -5,7 +5,15 @@
           <h3 class="city-search-title">SEARCH CITIES</h3>
           <div class="search-city-input-wrapper">
             <div class="ngui-auto-complete-wrapper" style="position: relative;">
-              <input google-place auto-complete="" auto-complete-placeholder="search city" class="search-city-input ng-untouched ng-pristine ng-valid" placeholder="search city" ng-reflect-auto-complete-placeholder="search city" ng-reflect-source="" ng-reflect-max-num-list="5" ng-reflect-close-on-focus-out="false" autocomplete="off">
+              <div class="row">
+                <div class="col-md-6">
+                  <select class="search-city-input" placeholder="Choose your option" (change)="citySelected($event.target.value)">
+                      <option value="0">Select your City</option>
+                    <option *ngFor="let city of cities" value={{city.name}}>{{city.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <input class="search-city-input" placeholder="search city" (onAddressChange)="handleAddressChange($event)"> -->
             </div>
             <button class="search-city-btn">
               <svg class="search-icon" viewBox="0 0 451 451" xmlns="http://www.w3.org/2000/svg">
@@ -17,35 +25,8 @@
           <span class="city-search-hr">O O O</span>
         </div>
         <div class="city-search-body">
+        <app-weather-card *ngIf="showCity"></app-weather-card> 
         </div>
       </div>
-      <!-- <div _ngcontent-c6="" class="fav-city-wrapper">
-        <img _ngcontent-c6="" class="fav-city-image" src="https://www.viajarsolo.com/thumbnails/gallery_image_full/components/kcfinder/kcfinder-3.12/upload/images/0B8ejrJ3IlSZvQUdyWHgtZjdtVVE.jpg?itok=Y2KZ6rfH">
-        <div _ngcontent-c6="" class="fav-city-image-overlay">
-        </div>
-        <div _ngcontent-c6="" class="fav-city-header">
-          <h3 _ngcontent-c6="" class="fav-city-title">CITY OF THE MONTH</h3>
-          <hr _ngcontent-c6="" class="fav-city-hr">
-          <span _ngcontent-c6="" class="fav-city-date">Sunday, 12th December</span>
-        </div>
-        <div _ngcontent-c6="" class="fav-city-body">
-          <div _ngcontent-c6="" class="fav-city-body-subwrapper">
-            <div _ngcontent-c6="" class="fav-weather-icon" ng-reflect-ng-switch="true">
-              <svg _ngcontent-c6="" viewBox="2050 -845 262 262">
-                <circle _ngcontent-c6="" cx="131" cy="131" data-name="Sun Icon" fill="#ffde17" r="131" transform="translate(2050 -845)">
-                </circle>
-              </svg>
-            </div>
-            <div _ngcontent-c6="" class="fav-city-info">
-              <span _ngcontent-c6="" class="fav-city-temp">28°</span>
-              <div _ngcontent-c6="" class="fav-city-name-wrapper">
-                <span _ngcontent-c6="" class="fav-city-name">ROME</span>
-                <span _ngcontent-c6="" class="fav-city-country">IT</span>
-              </div>
-              <span _ngcontent-c6="" class="fav-city-state">Clear</span>
-            </div><button _ngcontent-c6="" class="fav-city-add-btn" ng-reflect-klass="fav-city-add-btn" ng-reflect-ng-class="[object Object]">FOLLOW +</button>
-          </div>
-        </div>
-      </div> -->
     </section>
   </div>

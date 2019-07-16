@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {WeatherService} from '../../services/weather/weather.service';
 import {UiService} from '../../services/ui/ui.service';
+import { GetCityNameService } from 'src/app/get-city-name.service';
 
 @Component({
   selector: 'app-weather-card',
@@ -15,29 +16,36 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   maxTemp: number;
   minTemp: number;
   darkMode: boolean;
+  getCityName: any;
 
   constructor(public weather: WeatherService,
               public router: Router,
-              public ui: UiService) {
+              public ui: UiService,
+              private cityNameService: GetCityNameService) {
   }
-
+ 
+  
   ngOnInit() {
+    
     this.ui.darkModeState.subscribe((isDark) => {
       this.darkMode = isDark;
+      this.getCityName = this.cityNameService.getCityName();
+      console.log(this.getCityName);
     });
 
-    this.weather.getWeatherState('Paris')
+    this.weather.getWeatherState(this.getCityName)
       .subscribe((data: string) => {
         this.condition = data;
+        console.log(data)
       });
 
-    this.weather.getCurrentTemp('Paris').subscribe((data: number) => {
+    this.weather.getCurrentTemp(this.getCityName).subscribe((data: number) => {
       this.currentTemp = data;
     });
-    this.weather.getMinTemp('Paris').subscribe((data: number) => {
+    this.weather.getMinTemp(this.getCityName).subscribe((data: number) => {
       this.minTemp = data;
     });
-    this.weather.getMaxTemp('Paris').subscribe((data: number) => {
+    this.weather.getMaxTemp(this.getCityName).subscribe((data: number) => {
       this.maxTemp = data;
     });
   }
@@ -47,7 +55,7 @@ export class WeatherCardComponent implements OnInit, OnDestroy {
   }
 
   openDetails() {
-    this.router.navigateByUrl('/details/paris');
+    this.router.navigateByUrl('/details/'+this.getCityName);
   }
 
 }

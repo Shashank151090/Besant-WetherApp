@@ -7,6 +7,11 @@ export class WeatherService {
 
   constructor(public http: HttpClient) {
   }
+cityList = []
+  getCityList(){
+   return this.http.get('http://localhost:4200/assets/json/cities.json')
+    
+  }
 
   getCityWeatherByName(city: string, metric: 'metric' | 'imperial' = 'metric'): Subject<string> {
     const dataSub = new Subject<string>();

@@ -1,6 +1,8 @@
 <div class="main__container">
-
-  <app-weather-card></app-weather-card>
+    <div *ngFor="let city of cities| async">
+    <app-weather-card class="city-container"></app-weather-card>  
+    </div>
   <app-add-card></app-add-card>
 
+  <i class="wi wi-night-sleet"></i>
 </div>
