@@ -1,159 +1,180 @@
 <div class="details-page__wrapper-dark">
-  <svg class="background-gradient__circle" viewBox="4572 73 1328 1328">
-     <defs>
-        <linearGradient id="ddd" x2="0" y2="1" gradientUnits="objectBoundingBox">
-           <stop offset="0" stop-color="#ff8b8b" />
-           <stop offset="1" stop-color="#6676ff" />
-        </linearGradient>
-     </defs>
-     <circle cx="664" cy="664" r="664" fill="url(#ddd)" transform="translate(4572 73)" />
-  </svg>
-  <div class="back__button" routerLink="">
-     <img src="../../../assets/images/back.PNG">
-  </div>
-  <section class="main-weather__card-dark">
-     <section class="card-header__container-dark" [ngSwitch]="true">
-        <svg *ngSwitchDefault viewBox="4302 163 1218 406">
-           <defs>
-              <style>
-                 .aa {
-                 opacity: 0.6;
-                 }
-              </style>
-              <linearGradient id="aa" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-                 <stop offset="0" stop-color="#000075" />
-                 <stop offset="1" stop-color="#ff8c8c" />
-              </linearGradient>
-           </defs>
-           <path class="aa" fill="url(#aa)"
-              d="M20,0H1198a20,20,0,0,1,20,20V406a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z"
-              transform="translate(4302 163)" />
-        </svg>
-        <div class="header-content__wrapper">
-           <div class="today-weather__container">
-              <!--{{today}}-->
-              <div class="temp-state__container">
-                 <span class="temperature__text">{{temp}}°</span>
-                 <span class="weather-state__text">{{state}}</span>
-              </div>
-              <div class="hum-wind__container">
-                 <div class="hum__container">
-                    <span class="hum__text">humidity</span>
-                    <span class="hum-value__text">{{hum}} %</span>
-                 </div>
-                 <div class="hum-wind__separator">&nbsp;</div>
-                 <div class="wind__container">
-                    <span class="wind__text">wind</span>
-                    <span class="wind-value__text">{{wind}} K/M</span>
-                 </div>
-              </div>
-           </div>
-           <div class="city-name__container">
-              <div class="city-name__underline">
-                 <span class="city-name__text">{{city}}</span>
-              </div>
-           </div>
-        </div>
-     </section>
-     <main class="body-content__wrapper">
-        <section class="twitter-feed__container">
-           <div class="twitter-feed__header">
-              <div class="twitter__icon">
-                 <img src="../../../assets/images/tweeter.png">
-              </div>
-              <span class="twitter-feed-tag__text">#{{city}}</span>
-           </div>
-           <div class="twitter-feed__body">
-              <!--TODO: retrieve tweets from twitter API-->
-           </div>
-        </section>
-        <section class="forecast__container">
-           <div class="day-weather__container" [ngSwitch]="true">
-              <span class="day-name__text">{{day1Name}}</span>
-              <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Clouds'">
-                 <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Rain' || day1State === 'Drizzle'">
-                 <img class="forecast-condition__image" src="../../../assets/images/rain.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Storm'">
-                 <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Sunny' || day1State === 'Clear'">
-                 <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
-              </div>
-              <span class="day-temp__text">{{day1Temp}}°</span>
-              <span class="day-state__text">{{day1State}}</span>
-           </div>
-           <div class="day-weather__container" [ngSwitch]="true">
-              <span class="day-name__text">{{day2Name}}</span>
-              <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Clouds'">
-                 <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Rain' || day2State === 'Drizzle'">
-                 <img class="forecast-condition__image" src="../../../assets/images/rain.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Storm'">
-                 <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Sunny' || day2State === 'Clear'">
-                 <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
-              </div>
-              <span class="day-temp__text">{{day2Temp}}°</span>
-              <span class="day-state__text">{{day2State}}</span>
-           </div>
-           <div class="day-weather__container" [ngSwitch]="true">
-              <span class="day-name__text">{{day3Name}}</span>
-              <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Clouds'">
-                 <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Rain' || day3State === 'Drizzle'">
-                 <img class="forecast-condition__image" src="../../../assets/images/rain.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Storm'">
-                 <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Sunny' || day3State === 'Clear'">
-                 <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
-              </div>
-              <span class="day-temp__text">{{day3Temp}}°</span>
-              <span class="day-state__text">{{day3State}}</span>
-           </div>
-           <div class="day-weather__container" [ngSwitch]="true">
-              <span class="day-name__text">{{day4Name}}</span>
-              <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Clouds'">
-                 <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Rain' || day4State === 'Drizzle'">
-                 <img class="forecast-condition__image" src="../../../assets/images/rain.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Storm'">
-                 <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Sunny' || day4State === 'Clear'">
-                 <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
-              </div>
-              <span class="day-temp__text">{{day4Temp}}°</span>
-              <span class="day-state__text">{{day4State}}</span>
-           </div>
-           <div class="day-weather__container" [ngSwitch]="true">
-              <span class="day-name__text">{{day5Name}}</span>
-              <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Clouds'">
-                 <img class="forecast-condition__image" class src="../../../assets/images/cloud.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Rain' || day5State === 'Drizzle'">
-                 <img class="forecast-condition__image" src="../../../assets/images/rain.png">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Storm'">
-                 <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
-              </div>
-              <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Sunny' || day5State === 'Clear'">
-                 <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
-              </div>
-              <span class="day-temp__text">{{day5Temp}}°</span>
-              <span class="day-state__text">{{day5State}}</span>
-           </div>
-        </section>
-     </main>
-  </section>
-</div>
+      <svg class="background-gradient__circle" viewBox="4572 73 1328 1328">
+         <defs>
+            <linearGradient id="ddd" x2="0" y2="1" gradientUnits="objectBoundingBox">
+               <stop offset="0" stop-color="#ff8b8b" />
+               <stop offset="1" stop-color="#6676ff" />
+            </linearGradient>
+         </defs>
+         <circle cx="664" cy="664" r="664" fill="url(#ddd)" transform="translate(4572 73)" />
+      </svg>
+      <div class="back__button" routerLink="">
+         <img src="../../../assets/images/back.PNG">
+      </div>
+      <section class="main-weather__card-dark">
+         <section class="card-header__container-dark" [ngSwitch]="true">
+            <div *ngSwitchCase="city === 'Delhi'">
+               <img class="city-image" src="../../../assets/images/city-icons/Delhi.jpg">
+            </div>
+            <div *ngSwitchCase="city === 'Mumbai'">
+               <img class="city-image" src="../../../assets/images/city-icons/Mumbai.jpg">
+            </div>
+            <div *ngSwitchCase="city === 'Kolkata'">
+               <img class="city-image" src="../../../assets/images/city-icons/Kolkata.png">
+            </div>
+            <div *ngSwitchCase="city === 'Bengaluru'">
+               <img class="city-image" src="../../../assets/images/city-icons/Bangalore.jpg">
+            </div>
+            <div *ngSwitchCase="city === 'Chennai'">
+               <img class="city-image" src="../../../assets/images/city-icons/Chennai.jpeg">
+            </div>
+            <div *ngSwitchCase="city === 'Agra'">
+               <img class="city-image" src="../../../assets/images/city-icons/Agra.jpg">
+            </div>
+            <div *ngSwitchCase="city === 'Jamshedpur'">
+                  <img class="city-image" src="../../../assets/images/city-icons/Jamshedpur.jpg">
+               </div>
+            <svg *ngSwitchDefault viewBox="4302 163 1218 406">
+               <defs>
+                  <style>
+                     .aa {
+                     opacity: 0.6;
+                     }
+                  </style>
+                  <linearGradient id="aa" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+                     <stop offset="0" stop-color="#000075" />
+                     <stop offset="1" stop-color="#ff8c8c" />
+                  </linearGradient>
+               </defs>
+               <path class="aa" fill="url(#aa)"
+                  d="M20,0H1198a20,20,0,0,1,20,20V406a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z"
+                  transform="translate(4302 163)" />
+            </svg>
+            <div class="header-content__wrapper">
+               <div class="today-weather__container">
+                  <!--{{today}}-->
+                  <div class="temp-state__container">
+                     <span class="temperature__text">{{temp}}°</span>
+                     <span class="weather-state__text">{{state}}</span>
+                  </div>
+                  <div class="hum-wind__container">
+                     <div class="hum__container">
+                        <span class="hum__text">humidity</span>
+                        <span class="hum-value__text">{{hum}} %</span>
+                     </div>
+                     <div class="hum-wind__separator">&nbsp;</div>
+                     <div class="wind__container">
+                        <span class="wind__text">wind</span>
+                        <span class="wind-value__text">{{wind}} K/M</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="city-name__container">
+                  <div class="city-name__underline">
+                     <span class="city-name__text">{{city}}</span>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <main class="body-content__wrapper">
+            <section class="twitter-feed__container">
+               <div class="twitter-feed__header">
+                  <div class="twitter__icon">
+                     <img src="../../../assets/images/tweeter.png">
+                  </div>
+                  <span class="twitter-feed-tag__text">#{{city}}</span>
+               </div>
+               <div class="twitter-feed__body">
+                  <!--TODO: retrieve tweets from twitter API-->
+               </div>
+            </section>
+            <section class="forecast__container">
+               <div class="day-weather__container" [ngSwitch]="true">
+                  <span class="day-name__text">{{day1Name}}</span>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Clouds'">
+                     <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Rain' || day1State === 'Drizzle'">
+                     <img class="forecast-condition__image" src="../../../assets/images/rain.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Storm'">
+                     <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day1State === 'Sunny' || day1State === 'Clear'">
+                     <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
+                  </div>
+                  <span class="day-temp__text">{{day1Temp}}°</span>
+                  <span class="day-state__text">{{day1State}}</span>
+               </div>
+               <div class="day-weather__container" [ngSwitch]="true">
+                  <span class="day-name__text">{{day2Name}}</span>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Clouds'">
+                     <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Rain' || day2State === 'Drizzle'">
+                     <img class="forecast-condition__image" src="../../../assets/images/rain.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Storm'">
+                     <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day2State === 'Sunny' || day2State === 'Clear'">
+                     <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
+                  </div>
+                  <span class="day-temp__text">{{day2Temp}}°</span>
+                  <span class="day-state__text">{{day2State}}</span>
+               </div>
+               <div class="day-weather__container" [ngSwitch]="true">
+                  <span class="day-name__text">{{day3Name}}</span>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Clouds'">
+                     <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Rain' || day3State === 'Drizzle'">
+                     <img class="forecast-condition__image" src="../../../assets/images/rain.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Storm'">
+                     <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day3State === 'Sunny' || day3State === 'Clear'">
+                     <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
+                  </div>
+                  <span class="day-temp__text">{{day3Temp}}°</span>
+                  <span class="day-state__text">{{day3State}}</span>
+               </div>
+               <div class="day-weather__container" [ngSwitch]="true">
+                  <span class="day-name__text">{{day4Name}}</span>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Clouds'">
+                     <img class="forecast-condition__image" src="../../../assets/images/cloud.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Rain' || day4State === 'Drizzle'">
+                     <img class="forecast-condition__image" src="../../../assets/images/rain.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Storm'">
+                     <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day4State === 'Sunny' || day4State === 'Clear'">
+                     <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
+                  </div>
+                  <span class="day-temp__text">{{day4Temp}}°</span>
+                  <span class="day-state__text">{{day4State}}</span>
+               </div>
+               <!-- <div class="day-weather__container" [ngSwitch]="true">
+                  <span class="day-name__text">{{day5Name}}</span>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Clouds'">
+                     <img class="forecast-condition__image" class src="../../../assets/images/cloud.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Rain' || day5State === 'Drizzle'">
+                     <img class="forecast-condition__image" src="../../../assets/images/rain.png">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Storm'">
+                     <img class="forecast-condition__image" src="../../../assets/images/storm.svg">
+                  </div>
+                  <div class="forecast-condition__icon" *ngSwitchCase="day5State === 'Sunny' || day5State === 'Clear'">
+                     <img class="forecast-condition__image" src="../../../assets/images/sunny.png">
+                  </div>
+                  <span class="day-temp__text">{{day5Temp}}°</span>
+                  <span class="day-state__text">{{day5State}}</span>
+               </div> -->
+            </section>
+         </main>
+      </section>
+   </div>

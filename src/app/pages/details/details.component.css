@@ -37,6 +37,10 @@
   position: relative;
   z-index: 1;
 }
+.city-image{
+  max-height: 20rem;
+  width:100%;
+}
 
 .back__button {
   position: absolute;
