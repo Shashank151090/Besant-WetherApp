@@ -21,7 +21,7 @@
 .main-weather__card-dark {
   background-color: white;
   height: 85%;
-  width: 60%;
+  width: 75%;
   border-radius: 1rem;
   position: relative;
   z-index: 3;
@@ -215,6 +215,9 @@
 
 .forecast-condition__icon {
   height: 4rem;
+}
+.forecast-condition__image {
+  height: 5rem;
 }
 
 .day-temp__text {

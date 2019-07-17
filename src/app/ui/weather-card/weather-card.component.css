@@ -62,10 +62,10 @@ Weather Card Styling
   height: 1.25rem;
   margin: auto;
 }
-
-.max-arrow__icon {
-  margin-bottom: -0.05rem;
+.min-icon, .max-icon {
+  height: 2rem;
 }
+
 
 .weather-condition__text {
   display: block;
@@ -100,7 +100,7 @@ Weather Card Styling
   justify-content: center;
 }
 
-.weather-icon__container > svg {
+.weather-icon__img {
   width: 10rem;
 }
 
