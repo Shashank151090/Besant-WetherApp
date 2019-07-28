@@ -7,10 +7,16 @@
             <div class="ngui-auto-complete-wrapper" style="position: relative;">
               <div class="row">
                 <div class="col-md-6">
-                  <select class="search-city-input" placeholder="Choose your option" (change)="citySelected($event.target.value)">
+                    <input class="form-control search-city-input" [(ngModel)]="searchText" placeholder="Search..">
+                    <ul> 
+                        <li *ngFor="let city of cities | searchData: {name: searchText}; let i=index;">
+                            <td style="width: 15%;" (click)="citySelected(city.name)">{{city.name}}</td>
+                        </li>
+                        </ul>
+                  <!-- <select class="search-city-input" placeholder="Choose your option" (change)="citySelected($event.target.value)">
                       <option value="0">Select your City</option>
                     <option *ngFor="let city of cities" value={{city.name}}>{{city.name}}</option>
-                  </select>
+                  </select> -->
                 </div>
               </div>
               <!-- <input class="search-city-input" placeholder="search city" (onAddressChange)="handleAddressChange($event)"> -->
