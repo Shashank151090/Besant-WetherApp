@@ -9,7 +9,7 @@ export class WeatherService {
   }
 cityList = []
   getCityList(){
-   return this.http.get('http://localhost:4200/assets/json/cities.json')
+   return this.http.get('../../../assets/json/cities.json')
     
   }
 
