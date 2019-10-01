@@ -7,12 +7,32 @@
             <div class="ngui-auto-complete-wrapper" style="position: relative;">
               <div class="row">
                 <div class="col-md-6">
-                    <input class="form-control search-city-input" [(ngModel)]="searchText" placeholder="Search..">
+
+
+                    <ng-autocomplete 
+                    [data]="cities"
+                    [searchKeyword]="keyword"
+                    (selected)='citySelected($event)'
+                    (inputChanged)='onChangeSearch($event)'
+                    (inputFocused)='onFocused($event)'
+                    [itemTemplate]="itemTemplate"
+                    [notFoundTemplate]="notFoundTemplate">                                 
+                  </ng-autocomplete>
+                   
+<ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+    </ng-template>
+     
+    <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+    </ng-template>
+
+                    <!-- <input class="form-control search-city-input" [(ngModel)]="searchText" placeholder="Search..">
                     <ul> 
                         <li *ngFor="let city of cities | searchData: {name: searchText}; let i=index;">
                             <td style="width: 15%;" (click)="citySelected(city.name)">{{city.name}}</td>
                         </li>
-                        </ul>
+                        </ul> -->
                   <!-- <select class="search-city-input" placeholder="Choose your option" (change)="citySelected($event.target.value)">
                       <option value="0">Select your City</option>
                     <option *ngFor="let city of cities" value={{city.name}}>{{city.name}}</option>

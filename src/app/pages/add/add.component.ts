@@ -14,6 +14,7 @@ export class AddComponent implements OnInit {
   }
 
   cities: {};
+  keyword = 'name';
   showCity: boolean = false;
   ngOnInit() {
  this.weatherService.getCityList()
@@ -25,8 +26,22 @@ export class AddComponent implements OnInit {
     citySelected(filterVal: any){
        console.log(filterVal);
       this.showCity = true;
-      this.cityNameService.putCityName(filterVal);
+      this.cityNameService.putCityName(filterVal.name);
 
-    }
+    } 
+ 
+  selectEvent(item) {
+    // do something with selected item
+  }
+ 
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+  
+  onFocused(e){
+    // do something when input is focused
+    this.showCity = false;
+  }
 
 }

@@ -15,3 +15,5 @@ body {
     opacity: 1;
   }
 }
+
+body { margin: 0; }

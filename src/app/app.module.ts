@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
+
 import {HomeComponent} from './pages/home/home.component';
 import {DetailsComponent} from './pages/details/details.component';
 import {WeatherService} from './services/weather/weather.service';
@@ -17,6 +18,10 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import {UiService} from './services/ui/ui.service';
 import { GooglePlacesDirective } from './google-places.directive';
 import { SearchDataPipe } from './search-data.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +43,8 @@ import { SearchDataPipe } from './search-data.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    AutocompleteLibModule
   ],
   providers: [
     WeatherService,

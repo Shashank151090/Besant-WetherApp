@@ -5,6 +5,10 @@
     align-items: center;
     min-height: 90vh;
 }
+.autocomplete-container{
+    width:97% !important;
+    height: 50px;
+}
 .main-card{
     margin-top: 2rem;
     height: 90vh;
@@ -92,8 +96,8 @@ input {
     height: 5rem;
     width: 5rem;
     border-radius: 50%;
-    right: 0;
-    top: -0.35rem;
+    right: -25px;
+    top: -1.35rem;
     outline: none;
     border: none;
     z-index: 5;
